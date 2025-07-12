@@ -562,6 +562,12 @@ class Board_(Model):
     createdAt: Optional[str]=Unset
     updatedAt: Optional[str]=Unset
 
+    defaultView: Optional[str]=Unset
+    defaultCardType: Optional[str]=Unset
+    limitCardTypesToDefaultOne: Optional[bool]=Unset
+    alwaysDisplayCardCreator: Optional[bool]=Unset
+    isSubscribed: Optional[bool]=Unset
+
 @dataclass(eq=False)
 class BoardMembership_(Model):
     """Board Membership Model
@@ -617,6 +623,11 @@ class Card_(Model):
     isSubscribed: Optional[bool]=Unset
     createdAt: Optional[str]=Unset
     updatedAt: Optional[str]=Unset
+
+    type: Optional[str]=Unset
+    commentsTotal: Optional[int]=Unset
+    listChangedAt: Optional[str]=Unset
+    prevListId: Optional[int]=Unset
 
 @dataclass(eq=False)
 class Stopwatch(Model):
@@ -797,6 +808,8 @@ class List_(Model):
     createdAt: Optional[str]=Unset
     updatedAt: Optional[str]=Unset
 
+    type: Optional[str]=Unset
+
 @dataclass(eq=False)
 class Notification_(Model):
     """Notification Model
@@ -833,11 +846,18 @@ class Project_(Model):
     id: Optional[int]=Unset
     name: Optional[str]=Required
     # Background overrides backgroundImage
-    background: Optional[dict]=Unset
-    backgroundImage: Optional[BackgroundImage]=Unset
+    background: Optional[str]=Unset
     createdAt: Optional[str]=Unset
     updatedAt: Optional[str]=Unset
-    
+
+    backgroundType: Optional[dict]=Unset
+    description: Optional[str]=Required
+    backgroundGradient: Optional[BackgroundImage]=Unset
+    isHidden: Optional[bool]=Unset
+    isFavorite: Optional[bool]=Unset
+    ownerProjectManagerId: Optional[int]=Unset
+    backgroundImageId: Optional[int]=Unset
+
 @dataclass(eq=False)
 class ProjectManager_(Model):
     """Project Manager Model
