@@ -856,7 +856,7 @@ class Project_(Model):
     isHidden: Optional[bool]=Unset
     isFavorite: Optional[bool]=Unset
     ownerProjectManagerId: Optional[int]=Unset
-    backgroundImageId: Optional[int]=Unset
+    backgroundImage: Optional[str]=Unset
 
 @dataclass(eq=False)
 class ProjectManager_(Model):
